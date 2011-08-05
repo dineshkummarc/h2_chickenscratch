@@ -2,10 +2,14 @@
 	margin:0;
 	padding:0;
 }
+html, body {
+	background:#EEE;
+}
 #core {
 	width:830px;
 	height:1080px;
-	margin:10px auto;
+	margin:40px auto;
+	background:#FFF;
 	border:1px solid #AAA;
 	font:16px/26px Helvetica, arial, sans-serif;
 }
@@ -15,12 +19,12 @@
 	background:#CCC;
 }
 .half-size {
-	width:360px;
+	width:320px;
 	vertical-align:top;
 	display:inline-block;
 }
 #core-inside {
-	padding:50px;
+	padding:50px 80px;
 }
 #title-box {
 	text-align:center;
