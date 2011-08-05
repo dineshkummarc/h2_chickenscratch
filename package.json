@@ -2,6 +2,11 @@
   "name": "chickenscript",
   "version": "0.0.1",
   "dependencies": {
-    "express": "*"
+    "express": "*",
+    "socket.io": "*",
+    "nib": "*",
+    "stylus": "*",
+    "underscore": "*",
+    "ejs": "*"
   }
 }
