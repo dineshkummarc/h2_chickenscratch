@@ -4,9 +4,9 @@
   express = require('express');
   request = require('request');
   app = express.createServer(express.logger());
-  docrapt_api_key = process.env('DOCRAPTOR_API_KEY');
-  docrapt_url = process.env('DOCRAPTOR_URL');
-  redis_url = process.env('REDISTOGO_URL');
+  docrapt_api_key = process.env.DOCRAPTOR_API_KEY;
+  docrapt_url = process.env.DOCRAPTOR_URL;
+  redis_url = process.env.REDISTOGO_URL;
   app.use(express.bodyParser());
   app.use(express.cookieParser());
   app.use(express.methodOverride());
