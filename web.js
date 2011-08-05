@@ -1,5 +1,6 @@
 (function() {
-  var app, express;
+  var app, express, port;
+  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
   express = require('express');
   app = express.createServer(express.logger());
   app.use(express.bodyParser());
@@ -9,6 +10,9 @@
   app.register('.coffee', require('ejs'));
   app.set('views', process.cwd() + '/app/views');
   app.set('view engine', 'ejs');
+  app.set('view options', {
+    layout: false
+  });
   app.use(express.static(process.cwd() + '/public'));
   app.use(express.static(process.cwd() + '/public/css'));
   app.use(express.static(process.cwd() + '/public/js'));
@@ -16,9 +20,12 @@
     dumpExceptions: true,
     showStack: true
   }));
-  app.get('/', function(req, res, next) {
-    return res.render('index');
-  });
-  app.listen(3000);
-  console.log("Listening on 3000");
+  app.get('/', __bind(function(req, res, next) {
+    return res.render('index', {
+      layout: false
+    });
+  }, this));
+  port = process.env.PORT || 3000;
+  app.listen(port);
+  console.log("Listening on " + port);
 }).call(this);
