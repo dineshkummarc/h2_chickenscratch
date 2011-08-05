@@ -1,0 +1,31 @@
+body {
+  background-color: #000;
+  color: #fff;
+  text-align: left;
+  font-size: large;
+  font-weight: bold;
+}
+header nav {
+  color: #fff;
+}
+header nav #title {
+  text-align: center;
+}
+header nav a {
+  color: #fff;
+}
+header nav ul {
+  display: inline;
+  list-style: none;
+  text-align: center;
+}
+header nav ul li {
+  padding-right: 0.5em;
+  display: inline;
+}
+#ws_console {
+  border-radius: 7;
+  background-color: #fff;
+  color: #000;
+  height: 100%;
+}
