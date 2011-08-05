@@ -1,5 +1,5 @@
 (function() {
-  var app, express;
+  var app, express, port;
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
   express = require('express');
   app = express.createServer(express.logger());
@@ -25,6 +25,7 @@
       layout: false
     });
   }, this));
-  app.listen(3000);
-  console.log("Listening on 3000");
+  port = process.env.PORT || 3000;
+  app.listen(port);
+  console.log("Listening on " + port);
 }).call(this);
