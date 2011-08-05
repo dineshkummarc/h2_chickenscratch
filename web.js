@@ -20,5 +20,5 @@
     return res.render('index');
   });
   app.listen(3000);
-  console.log("Listening on " + port);
+  console.log("Listening on 3000");
 }).call(this);
