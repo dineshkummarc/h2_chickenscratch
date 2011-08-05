@@ -1,7 +1,7 @@
 
-
 express = require 'express'
 app = express.createServer(express.logger())
+
 app.use express.bodyParser()
 app.use express.cookieParser()
 app.use express.methodOverride()
