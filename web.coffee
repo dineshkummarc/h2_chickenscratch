@@ -3,6 +3,10 @@ express = require 'express'
 request = require 'request'
 app     = express.createServer(express.logger())
 
+docrapt_api_key = process.env 'DOCRAPTOR_API_KEY' #   => ZoOGmPUlV1GpX5LootMi
+docrapt_url = process.env 'DOCRAPTOR_URL' #       => https://docraptor.com
+redis_url = process.env 'REDISTOGO_URL' #       => redis://redistogo:61776ab49c227845116a904a1a746e2f@angler.redistogo.com:9309/
+
 app.use express.bodyParser()
 app.use express.cookieParser()
 app.use express.methodOverride()
@@ -30,6 +34,7 @@ app.post '/', (req, res, next) =>
   console.log req.body.medicationQuantity
   console.log req.body.medicationDirections
   console.log req.body.signature
+  console.log docrapt_api_key+" "+docrapt_url+" "+redis_url
 
 port = process.env.PORT || 3000
 app.listen port
