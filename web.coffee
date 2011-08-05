@@ -1,11 +1,14 @@
 
 express = require 'express'
 request = require 'request'
+util    = require 'util'
+ins     = util.inspect
+
 app     = express.createServer(express.logger())
 
-docrapt_api_key = process.env.DOCRAPTOR_API_KEY #   => ZoOGmPUlV1GpX5LootMi
-docrapt_url = process.env.DOCRAPTOR_URL #       => https://docraptor.com
-redis_url = process.env.REDISTOGO_URL #       => redis://redistogo:61776ab49c227845116a904a1a746e2f@angler.redistogo.com:9309/
+docrapt_api_key = process.env.DOCRAPTOR_API_KEY
+docrapt_url     = process.env.DOCRAPTOR_URL
+redis_url       = process.env.REDISTOGO_URL
 
 app.use express.bodyParser()
 app.use express.cookieParser()
@@ -21,10 +24,10 @@ app.use express.static(process.cwd() + '/public/js')
 app.use(express.errorHandler { dumpExceptions: true, showStack: true })
 
 app.get '/', (req, res, next) => 
-  res.render 'index', {layout: false}
+  res.render 'index'
 
 app.post '/', (req, res, next) =>
-  res.render 'index', {layout: false}
+  res.render 'index'
   console.log req.body.firstName
   console.log req.body.lastName
   console.log req.body.dateOfBirth
@@ -34,7 +37,20 @@ app.post '/', (req, res, next) =>
   console.log req.body.medicationQuantity
   console.log req.body.medicationDirections
   console.log req.body.signature
-  console.log docrapt_api_key+" "+docrapt_url+" "+redis_url
+
+  to_uri = docrapt_url+"?user_credentials="+docrapt_api_key+"&doc[document_type]=pdf"+"&doc[name]="+(req.body.firstName+req.body.lastName)+"&doc[document_url]=http://chickenscratch.heroku.com/pdf/tpl&strict=false&test=false" #&doc[async]=true&doc[callback_url]=http://chickenscratch.heroku.com/pdf/show"
+
+  request {uri:to_uri}, (error, response, body) =>
+    if !error && response.statusCode == 200
+      console.log "ok docrapt response"
+      
+app.get '/pdf/show', (req, res, next) => 
+  console.log "/pdf/show "+ins(req.body)
+  res.render 'pdfshow'
+
+app.get '/pdf/tpl', (req, res, next) => 
+  console.log "/pdf/tpl "+ins(req.body)
+  res.render 'pdftpl'
 
 port = process.env.PORT || 3000
 app.listen port

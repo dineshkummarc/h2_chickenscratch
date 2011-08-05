@@ -1,8 +1,10 @@
 (function() {
-  var app, docrapt_api_key, docrapt_url, express, port, redis_url, request;
+  var app, docrapt_api_key, docrapt_url, express, ins, port, redis_url, request, util;
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
   express = require('express');
   request = require('request');
+  util = require('util');
+  ins = util.inspect;
   app = express.createServer(express.logger());
   docrapt_api_key = process.env.DOCRAPTOR_API_KEY;
   docrapt_url = process.env.DOCRAPTOR_URL;
@@ -25,14 +27,11 @@
     showStack: true
   }));
   app.get('/', __bind(function(req, res, next) {
-    return res.render('index', {
-      layout: false
-    });
+    return res.render('index');
   }, this));
   app.post('/', __bind(function(req, res, next) {
-    res.render('index', {
-      layout: false
-    });
+    var to_uri;
+    res.render('index');
     console.log(req.body.firstName);
     console.log(req.body.lastName);
     console.log(req.body.dateOfBirth);
@@ -42,7 +41,22 @@
     console.log(req.body.medicationQuantity);
     console.log(req.body.medicationDirections);
     console.log(req.body.signature);
-    return console.log(docrapt_api_key + " " + docrapt_url + " " + redis_url);
+    to_uri = docrapt_url + "?user_credentials=" + docrapt_api_key + "&doc[document_type]=pdf" + "&doc[name]=" + (req.body.firstName + req.body.lastName) + "&doc[document_url]=http://chickenscratch.heroku.com/pdf/tpl&strict=false&test=false";
+    return request({
+      uri: to_uri
+    }, __bind(function(error, response, body) {
+      if (!error && response.statusCode === 200) {
+        return console.log("ok docrapt response");
+      }
+    }, this));
+  }, this));
+  app.get('/pdf/show', __bind(function(req, res, next) {
+    console.log("/pdf/show " + ins(req.body));
+    return res.render('pdfshow');
+  }, this));
+  app.get('/pdf/tpl', __bind(function(req, res, next) {
+    console.log("/pdf/tpl " + ins(req.body));
+    return res.render('pdftpl');
   }, this));
   port = process.env.PORT || 3000;
   app.listen(port);
