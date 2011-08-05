@@ -1,1 +1,1 @@
-web: bundle exec rails server thin -p $PORT
+web: node web.js
