@@ -13,10 +13,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2AB49DAC13EC660C0093C025"
-               BuildableName = "PDF Writer.app"
-               BlueprintName = "PDF Writer"
-               ReferencedContainer = "container:PDF Writer.xcodeproj">
+               BlueprintIdentifier = "2A24308A13EC67CF00E02693"
+               BuildableName = "Team Green.app"
+               BlueprintName = "Team Green"
+               ReferencedContainer = "container:Team Green.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,10 +40,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2AB49DAC13EC660C0093C025"
-            BuildableName = "PDF Writer.app"
-            BlueprintName = "PDF Writer"
-            ReferencedContainer = "container:PDF Writer.xcodeproj">
+            BlueprintIdentifier = "2A24308A13EC67CF00E02693"
+            BuildableName = "Team Green.app"
+            BlueprintName = "Team Green"
+            ReferencedContainer = "container:Team Green.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -58,10 +58,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2AB49DAC13EC660C0093C025"
-            BuildableName = "PDF Writer.app"
-            BlueprintName = "PDF Writer"
-            ReferencedContainer = "container:PDF Writer.xcodeproj">
+            BlueprintIdentifier = "2A24308A13EC67CF00E02693"
+            BuildableName = "Team Green.app"
+            BlueprintName = "Team Green"
+            ReferencedContainer = "container:Team Green.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
