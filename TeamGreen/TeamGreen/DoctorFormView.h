@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DoctorForm : UIViewController
+@interface DoctorFormView : UIViewController
 
 @end
