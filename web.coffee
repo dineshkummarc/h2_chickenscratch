@@ -14,7 +14,9 @@ app.use express.static(process.cwd() + '/public/css')
 app.use express.static(process.cwd() + '/public/js')
 app.use(express.errorHandler { dumpExceptions: true, showStack: true })
 
-app.get '/', (req, res, next) -> res.render 'index', {layout: false}
+app.get '/', (req, res, next) => 
+  res.render 'index', {layout: false}
+
 app.listen 3000
 console.log("Listening on 3000")
 

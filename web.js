@@ -1,5 +1,6 @@
 (function() {
   var app, express;
+  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
   express = require('express');
   app = express.createServer(express.logger());
   app.use(express.bodyParser());
@@ -16,11 +17,11 @@
     dumpExceptions: true,
     showStack: true
   }));
-  app.get('/', function(req, res, next) {
+  app.get('/', __bind(function(req, res, next) {
     return res.render('index', {
       layout: false
     });
-  });
+  }, this));
   app.listen(3000);
   console.log("Listening on 3000");
 }).call(this);
