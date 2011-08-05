@@ -40,9 +40,9 @@ app.post '/', (req, res, next) =>
 
   to_uri = docrapt_url+"?user_credentials="+docrapt_api_key+"&doc[document_type]=pdf"+"&doc[name]="+(req.body.firstName+req.body.lastName)+"&doc[document_url]=http://chickenscratch.heroku.com/pdf/tpl&strict=false&test=false" #&doc[async]=true&doc[callback_url]=http://chickenscratch.heroku.com/pdf/show"
 
-  request {uri:to_uri}, (error, response, body) =>
-    if !error && response.statusCode == 200
-      console.log "ok docrapt response"
+  request {uri:to_uri}, (error, docResp, body) =>
+    if !error && docResp.statusCode == 200
+      console.log "ok docrapt response "+ins(body)
       
 app.get '/pdf/show', (req, res, next) => 
   console.log "/pdf/show "+ins(req.body)
