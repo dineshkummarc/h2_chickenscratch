@@ -16,6 +16,7 @@
 }
 .half-size {
 	width:360px;
+	vertical-align:top;
 	display:inline-block;
 }
 #core-inside {
