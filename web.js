@@ -10,6 +10,9 @@
   app.register('.coffee', require('ejs'));
   app.set('views', process.cwd() + '/app/views');
   app.set('view engine', 'ejs');
+  app.set('view options', {
+    layout: false
+  });
   app.use(express.static(process.cwd() + '/public'));
   app.use(express.static(process.cwd() + '/public/css'));
   app.use(express.static(process.cwd() + '/public/js'));
