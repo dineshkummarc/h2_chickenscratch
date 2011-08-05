@@ -44,9 +44,9 @@
     to_uri = docrapt_url + "?user_credentials=" + docrapt_api_key + "&doc[document_type]=pdf" + "&doc[name]=" + (req.body.firstName + req.body.lastName) + "&doc[document_url]=http://chickenscratch.heroku.com/pdf/tpl&strict=false&test=false";
     return request({
       uri: to_uri
-    }, __bind(function(error, response, body) {
-      if (!error && response.statusCode === 200) {
-        return console.log("ok docrapt response");
+    }, __bind(function(error, docResp, body) {
+      if (!error && docResp.statusCode === 200) {
+        return console.log("ok docrapt response " + ins(body));
       }
     }, this));
   }, this));
